@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import "@mantine/core/styles.css";
 
 import { GeistSans } from "geist/font/sans";
-import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
+import { theme } from "@/theme";
+import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
     "Build your custom event schema and get started with our ingestion app",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
-
-const theme = createTheme({});
 
 export default function RootLayout({
   children,

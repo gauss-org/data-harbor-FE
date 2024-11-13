@@ -1,5 +1,6 @@
-const postCssConfig = {
+const config = {
   plugins: {
+    "postcss-import": {},
     "postcss-preset-mantine": {},
     "postcss-simple-vars": {
       variables: {
@@ -10,7 +11,10 @@ const postCssConfig = {
         "mantine-breakpoint-xl": "88em",
       },
     },
+    autoprefixer: {},
+    "tailwindcss/nesting": {},
+    tailwindcss: {},
   },
 };
 
-export default postCssConfig;
+export default config;
