@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
+import "@mantine/core/styles.css";
 
 import { GeistSans } from "geist/font/sans";
+import { MantineProvider, ColorSchemeScript, createTheme } from "@mantine/core";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,12 +12,23 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+const theme = createTheme({});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+    <html
+      data-mantine-color-scheme="light"
+      lang="en"
+      className={`${GeistSans.variable}`}
+    >
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
+      </body>
     </html>
   );
 }
