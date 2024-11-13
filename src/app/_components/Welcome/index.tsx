@@ -1,10 +1,14 @@
 import { Text, Title, Center, Code } from "@mantine/core";
+import { Braces } from "lucide-react";
 
 export function Welcome() {
   return (
     <main>
       <Center>
-        <Title>Data Harbor</Title>
+        <Title className="flex gap-2">
+          <Braces size={48} />
+          Data Harbor
+        </Title>
       </Center>
 
       <Center>
