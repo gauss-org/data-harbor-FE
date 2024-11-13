@@ -4,7 +4,7 @@ export default async function Home() {
   return (
     <main>
       <Center>
-        <Title className="bg-red-500">Data Harbor</Title>
+        <Title>Data Harbor</Title>
       </Center>
 
       <Center>
