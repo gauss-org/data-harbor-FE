@@ -1,4 +1,4 @@
-name: "CI(PR)"
+name: "CI [GitHub]"
 
 on:
   pull_request:
