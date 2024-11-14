@@ -5,3 +5,4 @@
 3) PRs won't be merged if any one of the CI are failing. Click on "details" to understand why the CI for your PR is failing
 4) Follow https://www.conventionalcommits.org/en/v1.0.0 for PR title naming convention
 5) `<feat/fix/doc/chore/revert>: [#<issue-number>] foobar` - strictly use this format for writing any and every commit messages
+6) All code changes must be accompanied with their respective unit tests.
