@@ -18,8 +18,7 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
 
-      - run: pnpm turbo run lint
-      - run: pnpm manypkg check
+      - run: pnpm lint
 
   prettier:
     runs-on: ubuntu-latest
