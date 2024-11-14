@@ -5,7 +5,7 @@ const BasicFormComponent = dynamic(
 
 export default function Survey() {
   return (
-    <div className="flex min-h-screen flex-col items-center p-8">
+    <div className="flex min-h-screen flex-col items-center">
       <BasicFormComponent />
     </div>
   );
