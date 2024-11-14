@@ -1,6 +1,9 @@
 name: "Lint PR"
 
 on:
+  pull_request:
+    branches: ["*"]
+  merge_group:
   pull_request_target:
     types:
       - opened
