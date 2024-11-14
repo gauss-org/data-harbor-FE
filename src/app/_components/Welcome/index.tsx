@@ -8,7 +8,7 @@ export function Welcome() {
       <Center>
         <Title className="flex gap-2">
           <Braces size={48} />
-          Data Harbor
+          Data Harborr
         </Title>
       </Center>
 
