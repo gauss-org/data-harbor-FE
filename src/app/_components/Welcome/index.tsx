@@ -2,7 +2,6 @@ import { Text, Title, Center, Code } from "@mantine/core";
 import { Braces } from "lucide-react";
 
 export function Welcome() {
-  const test:number = 45;
 
   return (
     <main>
