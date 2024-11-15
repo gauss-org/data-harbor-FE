@@ -120,7 +120,14 @@ export default function DemoFormComponent() {
         key={selectedTheme}
       />
 
-      <Button variant="filled" color="red" className="mb-4" onClick={() => model.clear()}>Reset Form</Button>
+      <Button
+        variant="filled"
+        color="red"
+        className="mb-4"
+        onClick={() => model.clear()}
+      >
+        Reset Form
+      </Button>
 
       <Survey model={model} onComplete={() => model.render()} />
     </div>
