@@ -47,11 +47,6 @@ jobs:
       matrix:
         branch:
           - ${{ github.head_ref }}
-
-    permissions:
-      contents: read
-      pull-requests: write
-
     runs-on: ubuntu-latest
     name: Run Unit Tests
     steps:
@@ -72,6 +67,9 @@ jobs:
 
   report-coverage:
     needs: vitest
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: "Download Coverage Artifacts"
