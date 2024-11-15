@@ -9,7 +9,7 @@ import { type Metadata } from "next";
 export const metadata: Metadata = {
   title: "Data Harbor",
   description:
-    "Build your custom event schema and get started with our ingestion app",
+    "Build your custom form schema and get started with our ingestion app",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -21,6 +21,7 @@ export default function RootLayout({
       data-mantine-color-scheme="light"
       lang="en"
       className={`${GeistSans.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <ColorSchemeScript />
