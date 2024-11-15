@@ -11,7 +11,7 @@ export default defineConfig({
     coverage: {
       enabled: true,
       provider: "istanbul",
-      reporter: ["lcov", "html"],
+      reporter: ["lcov", "html", "json-summary", "json", "text"],
       thresholds: {
         lines: 80,
         branches: 80,
