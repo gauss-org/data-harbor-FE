@@ -58,14 +58,16 @@ export default function DemoFormComponent() {
   // initialize the model only once
   const model = useMemo(() => {
     const newModel = new Model(json);
-    newModel.applyTheme(themeMap.DefaultLight!);
+    console.log("useMemo/useStateTheme=", selectedTheme);
+    console.log("useMemo/ThemeMap=", themeMap[selectedTheme]);
+    newModel.applyTheme(themeMap[selectedTheme]!);
     return newModel;
-  }, []);
+  }, [selectedTheme]);
 
   useEffect(()=>{
-    model.applyTheme(themeMap.selectedTheme!);
-    model.render();
-    console.log(selectedTheme);
+    model.applyTheme(themeMap[selectedTheme]!);
+    console.log("useEffect/useStateTheme=", selectedTheme);
+    console.log("useEffect/ThemeMap=",themeMap[selectedTheme]);
   }, [model, selectedTheme]);
 
   return (
