@@ -71,9 +71,9 @@ export default function DemoFormComponent() {
   }, [model, selectedTheme]);
 
   return (
-    <>
-      <DemoFormThemeSelector setSelectedTheme={setSelectedTheme} key={selectedTheme} />
+    <div className="h-auto">
+      <DemoFormThemeSelector selectedTheme={selectedTheme} setSelectedTheme={setSelectedTheme} key={selectedTheme} />
       <Survey model={model} />
-    </>
+    </div>
   );
 }

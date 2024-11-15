@@ -2,10 +2,11 @@ import { Select } from "@mantine/core";
 import { formThemes } from "data/FormThemes";
 
 interface DemoFormThemeSelectorProps {
+  selectedTheme: string;
   setSelectedTheme: (theme: string) => void;
 }
 
-export const DemoFormThemeSelector = ({setSelectedTheme}: DemoFormThemeSelectorProps) => {
+export const DemoFormThemeSelector = ({selectedTheme, setSelectedTheme}: DemoFormThemeSelectorProps) => {
   return (
     <Select
       onChange={(value) => value ? setSelectedTheme((value)) : "DefaultLight"}
@@ -13,7 +14,7 @@ export const DemoFormThemeSelector = ({setSelectedTheme}: DemoFormThemeSelectorP
       label="Choose any theme of your choice"
       placeholder="Select Theme"
       data={formThemes}
-      defaultValue="DefaultLight"
+      defaultValue={selectedTheme}
       allowDeselect={true}
       nothingFoundMessage="Theme not found..."
       checkIconPosition="right"
