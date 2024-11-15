@@ -49,6 +49,7 @@ import {
 import { json } from "data/demo/DemoFormJSON";
 import { DemoFormThemeSelector } from "./DemoFormThemeSelector";
 import { useEffect, useMemo, useState } from "react";
+import { Button } from "@mantine/core";
 
 const themeMap: Record<string, ITheme> = {
   DefaultLight,
@@ -99,16 +100,16 @@ export default function DemoFormComponent() {
   // initialize the model only once
   const model = useMemo(() => {
     const newModel = new Model(json);
-    console.log("useMemo/useStateTheme=", selectedTheme);
-    console.log("useMemo/ThemeMap=", themeMap[selectedTheme]);
+    // console.log("useMemo/useStateTheme=", selectedTheme);
+    // console.log("useMemo/ThemeMap=", themeMap[selectedTheme]);
     newModel.applyTheme(themeMap[selectedTheme]!);
     return newModel;
   }, [selectedTheme]);
 
   useEffect(() => {
     model.applyTheme(themeMap[selectedTheme]!);
-    console.log("useEffect/useStateTheme=", selectedTheme);
-    console.log("useEffect/ThemeMap=", themeMap[selectedTheme]);
+    // console.log("useEffect/useStateTheme=", selectedTheme);
+    // console.log("useEffect/ThemeMap=", themeMap[selectedTheme]);
   }, [model, selectedTheme]);
 
   return (
@@ -118,7 +119,10 @@ export default function DemoFormComponent() {
         setSelectedTheme={setSelectedTheme}
         key={selectedTheme}
       />
-      <Survey model={model} />
+
+      <Button variant="filled" color="red" className="mb-4" onClick={() => model.clear()}>Reset Form</Button>
+
+      <Survey model={model} onComplete={() => model.render()} />
     </div>
   );
 }
