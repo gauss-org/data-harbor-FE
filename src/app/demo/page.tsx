@@ -16,7 +16,10 @@ export default function Survey() {
             JSON Editor Goes Here
           </Title>
         </section>
-        <section id="FORM UI Section" className="w-2/4 border-solid border-black border-2 shadow-md rounded-md p-6 bg-gray-200">
+        <section
+          id="FORM UI Section"
+          className="w-2/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
+        >
           <BasicFormComponent />
         </section>
       </section>

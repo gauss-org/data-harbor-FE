@@ -6,10 +6,13 @@ interface DemoFormThemeSelectorProps {
   setSelectedTheme: (theme: string) => void;
 }
 
-export const DemoFormThemeSelector = ({selectedTheme, setSelectedTheme}: DemoFormThemeSelectorProps) => {
+export const DemoFormThemeSelector = ({
+  selectedTheme,
+  setSelectedTheme,
+}: DemoFormThemeSelectorProps) => {
   return (
     <Select
-      onChange={(value) => value ? setSelectedTheme((value)) : "DefaultLight"}
+      onChange={(value) => (value ? setSelectedTheme(value) : "DefaultLight")}
       className="py-4"
       label="Choose any theme of your choice"
       placeholder="Select Theme"
