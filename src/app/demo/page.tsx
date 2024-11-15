@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 const BasicFormComponent = dynamic(
-  () => import("@/app/_components/demo/BasicForm"),
+  () => import("@/app/_components/demo/DemoForm"),
 );
 
 export default function Survey() {
