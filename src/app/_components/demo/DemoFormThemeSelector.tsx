@@ -1,9 +1,14 @@
 import { Select } from "@mantine/core";
 import { formThemes } from "data/FormThemes";
 
-export const DemoFormThemeSelector = () => {
+interface DemoFormThemeSelectorProps {
+  setSelectedTheme: (theme: string) => void;
+}
+
+export const DemoFormThemeSelector = ({setSelectedTheme}: DemoFormThemeSelectorProps) => {
   return (
     <Select
+      onChange={(value) => value ? setSelectedTheme((value)) : "DefaultLight"}
       className="py-4"
       label="Choose any theme of your choice"
       placeholder="Select Theme"
