@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { DemoFormThemeSelector } from "@/app/_components/demo/DemoFormThemeSelector";
 import { Title } from "@mantine/core";
 const BasicFormComponent = dynamic(
   () => import("@/app/_components/demo/DemoForm"),
@@ -19,7 +18,6 @@ export default function Survey() {
           {/* JSON Editor Goes Here */}
         </section>
         <section id="FORM UI Section" className="w-1/2">
-          <DemoFormThemeSelector />
           <BasicFormComponent />
         </section>
       </section>

@@ -5,9 +5,15 @@ import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.css";
 import { DefaultLight } from "survey-core/themes";
 import { json } from "data/demo/DemoFormJSON";
+import { DemoFormThemeSelector } from "./DemoFormThemeSelector";
 
 export default function DemoFormComponent() {
   const model = new Model(json);
   model.applyTheme(DefaultLight);
-  return <Survey model={model} />;
+  return (
+    <>
+      <DemoFormThemeSelector />
+      <Survey model={model} />
+    </>
+  );
 }
