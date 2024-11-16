@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { Title } from "@mantine/core";
 const BasicFormComponent = dynamic(
-  () => import("@/app/_components/demo/DemoForm"),
+  () => import("@/app/demo/_components/DemoForm"),
 );
 
 export default function Survey() {
