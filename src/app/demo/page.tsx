@@ -30,7 +30,7 @@ export default function Survey() {
           />
         </section>
         <section
-          id="FORM UI Section"
+          id="FORM UI"
           className="w-2/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
           <DemoFormContainer
