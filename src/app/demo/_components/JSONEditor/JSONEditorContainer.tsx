@@ -12,10 +12,10 @@ export const JSONEditorContainer = ({
   inputSchema,
   setInputSchema,
 }: JSONEditorContainerProps) => {
-  // state variable to track changes
+  // state variable to track changes done via Reset Schema Button
   const [schemaKey, setSchemaKey] = useState(0);
 
-  // Update the key when inputSchema changes
+  // update the key when Reset Schema Button is clicked
   useEffect(() => {
     setSchemaKey(prevKey => prevKey + 1);
   }, [inputSchema]);
@@ -24,6 +24,8 @@ export const JSONEditorContainer = ({
     <div className="h-auto">
       <JsonInput
         key={schemaKey} 
+        withAsterisk
+        variant="filled"
         className="pt-4"
         label="Your Custom Form Schema"
         description="Schema Editor for Dynamic Form Generation"
