@@ -1,5 +1,6 @@
 "use client";
 
+import { isValidJSON } from "@/lib/JSON";
 import { JsonInput } from "@mantine/core";
 import { useEffect, useState } from "react";
 
@@ -17,13 +18,19 @@ export const JSONEditorContainer = ({
 
   // update the key when Reset Schema Button is clicked
   useEffect(() => {
-    setSchemaKey(prevKey => prevKey + 1);
+    setSchemaKey((prevKey) => prevKey + 1);
   }, [inputSchema]);
+
+  const handleOnChange = (val: string) => {
+    if (isValidJSON(val)) {
+      setInputSchema(val);
+    }
+  };
 
   return (
     <div className="h-auto">
       <JsonInput
-        key={schemaKey} 
+        key={schemaKey}
         withAsterisk
         variant="filled"
         className="pt-4"
@@ -36,7 +43,7 @@ export const JSONEditorContainer = ({
         formatOnBlur
         validationError="Invalid JSON"
         defaultValue={inputSchema}
-        onChange={(val) => setInputSchema(val)}
+        onChange={handleOnChange}
       />
     </div>
   );
