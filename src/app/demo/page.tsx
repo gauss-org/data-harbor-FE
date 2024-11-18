@@ -1,10 +1,16 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import { JSONEditorContainer } from "@/app/demo/_components/JSONEditor/JSONEditorContainer";
+import { json } from "data/demo/DemoFormJSON";
+import { useState } from "react";
 const DemoFormContainer = dynamic(
   () => import("@/app/demo/_components/DemoForm/DemoFormContainer"),
 );
 
 export default function Survey() {
+  const [inputSchema, setInputSchema] = useState(JSON.stringify(json, null, 2));
+
   return (
     <div className="flex min-h-screen flex-col items-center">
       <section
@@ -15,13 +21,16 @@ export default function Survey() {
           id="JSON Editor"
           className="w-1/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
-          <JSONEditorContainer />
+          <JSONEditorContainer
+            inputSchema={inputSchema}
+            setInputSchema={setInputSchema}
+          />
         </section>
         <section
           id="FORM UI Section"
           className="w-2/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
-          <DemoFormContainer />
+          <DemoFormContainer inputSchema={inputSchema} />
         </section>
       </section>
     </div>

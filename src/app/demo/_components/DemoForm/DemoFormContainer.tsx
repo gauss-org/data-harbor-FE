@@ -46,7 +46,6 @@ import {
   ContrastLightPanelless,
   ContrastDarkPanelless,
 } from "survey-core/themes";
-import { json } from "data/demo/DemoFormJSON";
 import { DemoFormThemeSelector } from "./DemoFormThemeSelector";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@mantine/core";
@@ -94,15 +93,21 @@ const themeMap: Record<string, ITheme> = {
   ContrastDarkPanelless,
 };
 
-export default function DemoFormContainer() {
+interface DemoFormContainerProps {
+  inputSchema: string;
+}
+
+export default function DemoFormContainer({
+  inputSchema,
+}: DemoFormContainerProps) {
   const [selectedTheme, setSelectedTheme] = useState("DefaultLight");
 
   // initialize the model only once
   const model = useMemo(() => {
-    const newModel = new Model(json);
+    const newModel = new Model(inputSchema);
     newModel.applyTheme(themeMap[selectedTheme]!);
     return newModel;
-  }, [selectedTheme]);
+  }, [inputSchema, selectedTheme]);
 
   useEffect(() => {
     model.applyTheme(themeMap[selectedTheme]!);
@@ -117,13 +122,13 @@ export default function DemoFormContainer() {
       />
 
       <div className="flex flex-row gap-x-2 pb-4">
-        <Button variant="filled">Apply Form Schema</Button>
+        <Button variant="filled">Reset Form Schema</Button>
         <Button variant="filled" color="red" onClick={() => model.clear()}>
           Reset Form State
         </Button>
       </div>
 
-      <Survey model={model} onComplete={() => model.render()} />
+      <Survey model={model} />
     </div>
   );
 }
