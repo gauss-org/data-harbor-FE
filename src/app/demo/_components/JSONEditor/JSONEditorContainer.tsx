@@ -2,35 +2,33 @@
 
 import { isValidJSON } from "@/lib/JSON";
 import { JsonInput } from "@mantine/core";
-import { useEffect, useState } from "react";
 
 interface JSONEditorContainerProps {
   inputSchema: string;
   setInputSchema: (inputSchema: string) => void;
+  isValidSchema: boolean;
+  setIsValidSchema: (isValidSchema: boolean) => void;
 }
 
 export const JSONEditorContainer = ({
   inputSchema,
   setInputSchema,
+  isValidSchema,
+  setIsValidSchema
 }: JSONEditorContainerProps) => {
-  // state variable to track changes done via Reset Schema Button
-  const [schemaKey, setSchemaKey] = useState(0);
-
-  // update the key when Reset Schema Button is clicked
-  useEffect(() => {
-    setSchemaKey((prevKey) => prevKey + 1);
-  }, [inputSchema]);
-
   const handleOnChange = (val: string) => {
     if (isValidJSON(val)) {
+      setIsValidSchema(true);
       setInputSchema(val);
+    } else {
+      setIsValidSchema(false);
     }
   };
 
   return (
     <div className="h-auto">
       <JsonInput
-        key={schemaKey}
+        error={!isValidSchema}
         withAsterisk
         variant="filled"
         className="pt-4"

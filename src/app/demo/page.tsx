@@ -10,6 +10,7 @@ const DemoFormContainer = dynamic(
 
 export default function Survey() {
   const [inputSchema, setInputSchema] = useState(JSON.stringify(json, null, 2));
+  const [isValidSchema, setIsValidSchema] = useState(true);
 
   return (
     <div className="flex min-h-screen flex-col items-center">
@@ -24,6 +25,8 @@ export default function Survey() {
           <JSONEditorContainer
             inputSchema={inputSchema}
             setInputSchema={setInputSchema}
+            isValidSchema={isValidSchema}
+            setIsValidSchema={setIsValidSchema}
           />
         </section>
         <section
