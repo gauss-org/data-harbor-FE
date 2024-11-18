@@ -13,13 +13,13 @@ export default function Survey() {
       >
         <section
           id="JSON Editor"
-          className="w-1/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
+          className="w-1/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
           <JSONEditorContainer />
         </section>
         <section
           id="FORM UI Section"
-          className="w-3/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
+          className="w-2/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
           <DemoFormContainer />
         </section>

@@ -100,16 +100,12 @@ export default function DemoFormContainer() {
   // initialize the model only once
   const model = useMemo(() => {
     const newModel = new Model(json);
-    // console.log("useMemo/useStateTheme=", selectedTheme);
-    // console.log("useMemo/ThemeMap=", themeMap[selectedTheme]);
     newModel.applyTheme(themeMap[selectedTheme]!);
     return newModel;
   }, [selectedTheme]);
 
   useEffect(() => {
     model.applyTheme(themeMap[selectedTheme]!);
-    // console.log("useEffect/useStateTheme=", selectedTheme);
-    // console.log("useEffect/ThemeMap=", themeMap[selectedTheme]);
   }, [model, selectedTheme]);
 
   return (
@@ -120,14 +116,12 @@ export default function DemoFormContainer() {
         key={selectedTheme}
       />
 
-      <Button
-        variant="filled"
-        color="red"
-        className="mb-4"
-        onClick={() => model.clear()}
-      >
-        Reset Form
-      </Button>
+      <div className="flex flex-row gap-x-2 pb-4">
+        <Button variant="filled">Apply Form Schema</Button>
+        <Button variant="filled" color="red" onClick={() => model.clear()}>
+          Reset Form State
+        </Button>
+      </div>
 
       <Survey model={model} onComplete={() => model.render()} />
     </div>
