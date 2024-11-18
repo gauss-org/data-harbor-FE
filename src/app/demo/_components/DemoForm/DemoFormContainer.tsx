@@ -138,7 +138,6 @@ export default function DemoFormContainer({
           variant="filled"
           onClick={() => {
             setInputSchema(JSON.stringify(json, null, 2));
-            setIsValidSchema({ isValid: true, message: "" });
           }}
         >
           Reset Form Schema
