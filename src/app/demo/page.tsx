@@ -11,7 +11,10 @@ export default function Survey() {
         id="FORM-JSON-DEMO"
         className="flex w-full flex-row justify-evenly gap-x-2 p-2"
       >
-        <section id="JSON Editor" className="w-1/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md">
+        <section
+          id="JSON Editor"
+          className="w-1/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
+        >
           <JSONEditorContainer />
         </section>
         <section

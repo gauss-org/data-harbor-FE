@@ -4,13 +4,17 @@ export const JSONEditorContainer = () => {
   return (
     <div className="h-auto">
       <Textarea
-      className="pt-4"
+        className="pt-4"
         label="Your Custom Form Schema"
-        placeholder="Textarea will autosize to fit the content"
+        description="Schema Editor for Dynamic Form Generation"
+        placeholder="Textarea will autosize to fit the content..."
+        resize="vertical"
         autosize
         minRows={4}
       />
-      <Button variant="filled" className="my-4">Generate Form</Button>
+      <Button variant="filled" className="my-4">
+        Generate Form
+      </Button>
     </div>
   );
 };
