@@ -49,6 +49,7 @@ import {
 import { DemoFormThemeSelector } from "./DemoFormThemeSelector";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@mantine/core";
+import { json } from "data/demo/DemoFormJSON";
 
 const themeMap: Record<string, ITheme> = {
   DefaultLight,
@@ -95,14 +96,15 @@ const themeMap: Record<string, ITheme> = {
 
 interface DemoFormContainerProps {
   inputSchema: string;
+  setInputSchema: (inputSchema: string) => void;
 }
 
 export default function DemoFormContainer({
   inputSchema,
+  setInputSchema,
 }: DemoFormContainerProps) {
   const [selectedTheme, setSelectedTheme] = useState("DefaultLight");
 
-  // initialize the model only once
   const model = useMemo(() => {
     const newModel = new Model(inputSchema);
     newModel.applyTheme(themeMap[selectedTheme]!);
@@ -122,7 +124,12 @@ export default function DemoFormContainer({
       />
 
       <div className="flex flex-row gap-x-2 pb-4">
-        <Button variant="filled">Reset Form Schema</Button>
+        <Button
+          variant="filled"
+          onClick={() => setInputSchema(JSON.stringify(json, null, 2))}
+        >
+          Reset Form Schema
+        </Button>
         <Button variant="filled" color="red" onClick={() => model.clear()}>
           Reset Form State
         </Button>

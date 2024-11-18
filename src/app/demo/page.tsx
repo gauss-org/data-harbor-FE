@@ -30,7 +30,10 @@ export default function Survey() {
           id="FORM UI Section"
           className="w-2/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
-          <DemoFormContainer inputSchema={inputSchema} />
+          <DemoFormContainer
+            inputSchema={inputSchema}
+            setInputSchema={setInputSchema}
+          />
         </section>
       </section>
     </div>
