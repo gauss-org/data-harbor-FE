@@ -1,7 +1,7 @@
 "use client";
 
 import { isValidJSON } from "@/lib/JSON";
-import { JsonInput } from "@mantine/core";
+import { Alert, JsonInput } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 interface JSONEditorContainerProps {
@@ -39,6 +39,11 @@ export const JSONEditorContainer = ({
 
   return (
     <div className="h-auto">
+      {!isValidSchema.isValid && (
+        <Alert className="my-2" variant="light" color="red" title="Error">
+          {isValidSchema.message}
+        </Alert>
+      )}
       <JsonInput
         error={!isValidSchema}
         withAsterisk
