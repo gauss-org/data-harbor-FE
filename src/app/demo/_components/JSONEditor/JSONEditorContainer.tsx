@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 interface JSONEditorContainerProps {
   inputSchema: string;
   setInputSchema: (inputSchema: string) => void;
-  isValidSchema: boolean;
-  setIsValidSchema: (isValidSchema: boolean) => void;
+  isValidSchema: { isValid: boolean; message: string };
+  setIsValidSchema: (schema: { isValid: boolean; message: string }) => void;
 }
 
 export const JSONEditorContainer = ({
@@ -27,10 +27,13 @@ export const JSONEditorContainer = ({
   const handleOnChange = (val: string) => {
     setLocalValue(val);
     if (isValidJSON(val)) {
-      setIsValidSchema(true);
+      setIsValidSchema({ isValid: true, message: "" });
       setInputSchema(val);
     } else {
-      setIsValidSchema(false);
+      setIsValidSchema({
+        isValid: false,
+        message: "Please provide a valid JSON string.",
+      });
     }
   };
 

@@ -97,8 +97,8 @@ const themeMap: Record<string, ITheme> = {
 interface DemoFormContainerProps {
   inputSchema: string;
   setInputSchema: (inputSchema: string) => void;
-  isValidSchema: boolean;
-  setIsValidSchema: (isValidSchema: boolean) => void;
+  isValidSchema: { isValid: boolean; message: string };
+  setIsValidSchema: (schema: { isValid: boolean; message: string }) => void;
 }
 
 export default function DemoFormContainer({
@@ -117,7 +117,12 @@ export default function DemoFormContainer({
 
   useEffect(() => {
     model.applyTheme(themeMap[selectedTheme]!);
-    if (model.jsonErrors) setIsValidSchema(false);
+    if (model.jsonErrors)
+      setIsValidSchema({
+        isValid: false,
+        message:
+          "Schema Error: The provided JSON is valid but does not match the expected schema.",
+      });
   }, [model, selectedTheme, setIsValidSchema]);
 
   return (
@@ -133,7 +138,7 @@ export default function DemoFormContainer({
           variant="filled"
           onClick={() => {
             setInputSchema(JSON.stringify(json, null, 2));
-            setIsValidSchema(true);
+            setIsValidSchema({ isValid: true, message: "" });
           }}
         >
           Reset Form Schema
@@ -143,12 +148,9 @@ export default function DemoFormContainer({
         </Button>
       </div>
 
-      {!isValidSchema && (
+      {!isValidSchema.isValid && (
         <Alert className="mb-4" variant="light" color="red" title="Error">
-          {model.jsonErrors
-            ? `Schema Error: The provided JSON is valid but does not match the
-          expected schema.`
-            : `Please provide a valid JSON string.`}
+          {isValidSchema.message}
         </Alert>
       )}
 

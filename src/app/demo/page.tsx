@@ -14,7 +14,10 @@ const DemoFormContainer = dynamic(
 
 export default function Survey() {
   const [inputSchema, setInputSchema] = useState(JSON.stringify(json, null, 2));
-  const [isValidSchema, setIsValidSchema] = useState(true);
+  const [isValidSchema, setIsValidSchema] = useState({
+    isValid: true,
+    message: "",
+  });
   const [openedJSONEditor, handlersJSONEditor] = useDisclosure(true);
   const [openedFormUI, handlersFormUI] = useDisclosure(true);
 
