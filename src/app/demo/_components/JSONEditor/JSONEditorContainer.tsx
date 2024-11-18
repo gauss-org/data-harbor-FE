@@ -14,7 +14,7 @@ export const JSONEditorContainer = ({
   inputSchema,
   setInputSchema,
   isValidSchema,
-  setIsValidSchema
+  setIsValidSchema,
 }: JSONEditorContainerProps) => {
   const handleOnChange = (val: string) => {
     if (isValidJSON(val)) {

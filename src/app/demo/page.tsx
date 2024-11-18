@@ -34,6 +34,7 @@ export default function Survey() {
           className="w-2/3 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
           <DemoFormContainer
+            isValidSchema={isValidSchema}
             inputSchema={inputSchema}
             setInputSchema={setInputSchema}
           />

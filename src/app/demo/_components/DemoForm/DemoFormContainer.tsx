@@ -48,7 +48,7 @@ import {
 } from "survey-core/themes";
 import { DemoFormThemeSelector } from "./DemoFormThemeSelector";
 import { useEffect, useMemo, useState } from "react";
-import { Button } from "@mantine/core";
+import { Alert, Button } from "@mantine/core";
 import { json } from "data/demo/DemoFormJSON";
 
 const themeMap: Record<string, ITheme> = {
@@ -97,11 +97,13 @@ const themeMap: Record<string, ITheme> = {
 interface DemoFormContainerProps {
   inputSchema: string;
   setInputSchema: (inputSchema: string) => void;
+  isValidSchema: boolean;
 }
 
 export default function DemoFormContainer({
   inputSchema,
   setInputSchema,
+  isValidSchema,
 }: DemoFormContainerProps) {
   const [selectedTheme, setSelectedTheme] = useState("DefaultLight");
 
@@ -134,6 +136,18 @@ export default function DemoFormContainer({
           Reset Form State
         </Button>
       </div>
+
+      {!isValidSchema && (
+        <Alert className="mb-4" variant="light" color="red" title="Error">
+          Please provide a valid JSON string.
+        </Alert>
+      )}
+
+      {model.jsonErrors && (
+        <Alert className="mb-4" variant="light" color="red" title="Error">
+          Schema Error: The provided JSON is valid but does not match the expected schema.
+        </Alert>
+      )}
 
       <Survey model={model} />
     </div>
