@@ -15,8 +15,8 @@ const DemoFormContainer = dynamic(
 export default function Survey() {
   const [inputSchema, setInputSchema] = useState(JSON.stringify(json, null, 2));
   const [isValidSchema, setIsValidSchema] = useState(true);
-  const [openedJSONEditor, handlersJSONEditor] = useDisclosure(false);
-  const [openedFormUI, handlersFormUI] = useDisclosure(false);
+  const [openedJSONEditor, handlersJSONEditor] = useDisclosure(true);
+  const [openedFormUI, handlersFormUI] = useDisclosure(true);
 
   return (
     <div className="flex min-h-screen flex-col items-center">
@@ -31,7 +31,10 @@ export default function Survey() {
             "rounded-md border-2 border-solid border-black bg-gray-200 shadow-md",
           )}
         >
-          <Button onClick={handlersJSONEditor.toggle} className={cn(!openedJSONEditor && "mt-6")}>
+          <Button
+            onClick={handlersJSONEditor.toggle}
+            className={cn(!openedJSONEditor && "mt-6")}
+          >
             {openedJSONEditor ? "<" : ">"}
           </Button>
           <Collapse in={openedJSONEditor}>
@@ -50,12 +53,16 @@ export default function Survey() {
             "rounded-md border-2 border-solid border-black bg-gray-200 shadow-md",
           )}
         >
-          <Button onClick={handlersFormUI.toggle} className={cn(!openedFormUI && "mt-6")}>
+          <Button
+            onClick={handlersFormUI.toggle}
+            className={cn(!openedFormUI && "mt-6")}
+          >
             {openedFormUI ? ">" : "<"}
           </Button>
           <Collapse in={openedFormUI}>
             <DemoFormContainer
               isValidSchema={isValidSchema}
+              setIsValidSchema={setIsValidSchema}
               inputSchema={inputSchema}
               setInputSchema={setInputSchema}
             />
