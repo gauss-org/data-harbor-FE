@@ -1,8 +1,11 @@
 "use client";
 
 import { JsonInput } from "@mantine/core";
+import { json } from "data/demo/DemoFormJSON";
+import { useState } from "react";
 
 export const JSONEditorContainer = () => {
+  const [value, setValue] = useState(JSON.stringify(json, null, 2));
 
   return (
     <div className="h-auto">
@@ -16,6 +19,8 @@ export const JSONEditorContainer = () => {
         minRows={4}
         formatOnBlur
         validationError="Invalid JSON"
+        defaultValue={value}
+        onChange={(val) => setValue(val)}
       />
     </div>
   );
