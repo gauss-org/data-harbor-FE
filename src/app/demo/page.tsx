@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Button, Collapse } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { cn } from "@/lib";
+import { StepperContainer } from "@/app/demo/_components/Stepper/StepperContainer";
 
 const DemoFormContainer = dynamic(
   () => import("@/app/demo/_components/DemoForm/DemoFormContainer"),
@@ -23,6 +24,7 @@ export default function Survey() {
 
   return (
     <div className="flex min-h-screen flex-col items-center">
+      <StepperContainer />
       <section
         id="FORM-JSON-DEMO"
         className="flex w-full flex-row justify-evenly gap-x-2 p-2"
