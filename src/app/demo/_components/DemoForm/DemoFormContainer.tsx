@@ -145,7 +145,8 @@ export default function DemoFormContainer({
 
       {model.jsonErrors && (
         <Alert className="mb-4" variant="light" color="red" title="Error">
-          Schema Error: The provided JSON is valid but does not match the expected schema.
+          Schema Error: The provided JSON is valid but does not match the
+          expected schema.
         </Alert>
       )}
 

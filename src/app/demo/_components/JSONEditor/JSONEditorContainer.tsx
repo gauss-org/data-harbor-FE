@@ -2,6 +2,7 @@
 
 import { isValidJSON } from "@/lib/JSON";
 import { JsonInput } from "@mantine/core";
+import { useEffect, useState } from "react";
 
 interface JSONEditorContainerProps {
   inputSchema: string;
@@ -16,7 +17,15 @@ export const JSONEditorContainer = ({
   isValidSchema,
   setIsValidSchema,
 }: JSONEditorContainerProps) => {
+  const [localValue, setLocalValue] = useState(inputSchema);
+
+  useEffect(() => {
+    // update JSON Editor when inputSchema changes
+    setLocalValue(inputSchema);
+  }, [inputSchema]);
+
   const handleOnChange = (val: string) => {
+    setLocalValue(val);
     if (isValidJSON(val)) {
       setIsValidSchema(true);
       setInputSchema(val);
@@ -40,7 +49,7 @@ export const JSONEditorContainer = ({
         minRows={4}
         formatOnBlur
         validationError="Invalid JSON"
-        defaultValue={inputSchema}
+        value={localValue}
         onChange={handleOnChange}
       />
     </div>
