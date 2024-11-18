@@ -94,7 +94,7 @@ const themeMap: Record<string, ITheme> = {
   ContrastDarkPanelless,
 };
 
-export default function DemoFormComponent() {
+export default function DemoFormContainer() {
   const [selectedTheme, setSelectedTheme] = useState("DefaultLight");
 
   // initialize the model only once

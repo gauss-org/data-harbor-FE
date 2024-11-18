@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { Title } from "@mantine/core";
-const BasicFormComponent = dynamic(
-  () => import("@/app/demo/_components/DemoForm"),
+const DemoFormContainer = dynamic(
+  () => import("@/app/demo/_components/DemoFormContainer"),
 );
 
 export default function Survey() {
@@ -20,7 +20,7 @@ export default function Survey() {
           id="FORM UI Section"
           className="w-2/4 rounded-md border-2 border-solid border-black bg-gray-200 p-6 shadow-md"
         >
-          <BasicFormComponent />
+          <DemoFormContainer />
         </section>
       </section>
     </div>
