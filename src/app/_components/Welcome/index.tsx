@@ -1,3 +1,4 @@
+import { DH_Button } from "@/lib/ui/button/Button";
 import { Text, Title, Center, Code } from "@mantine/core";
 import { Braces } from "lucide-react";
 
@@ -22,6 +23,7 @@ export function Welcome() {
           Edit <Code>src/app/page.tsx</Code> to get started
         </Text>
       </Center>
+      <DH_Button>Get Started</DH_Button>
     </main>
   );
 }

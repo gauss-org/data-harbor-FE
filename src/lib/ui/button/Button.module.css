@@ -1,0 +1,3 @@
+.root {
+    @apply bg-violet-400 hover:bg-violet-500 text-black border-2 border-black;
+}
