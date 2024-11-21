@@ -2,9 +2,11 @@ import "@/styles/globals.css";
 import "@mantine/core/styles.css";
 
 import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { theme } from "@/theme";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { type Metadata } from "next";
+import { cn } from "@/lib";
 
 export const metadata: Metadata = {
   title: "Data Harbor",
@@ -20,7 +22,11 @@ export default function RootLayout({
     <html
       data-mantine-color-scheme="light"
       lang="en"
-      className={`${GeistSans.variable}`}
+      className={cn(
+        GeistSans.variable,
+        GeistMono.variable,
+        "font-sans [&_*]:!font-sans",
+      )}
       suppressHydrationWarning
     >
       <head>
