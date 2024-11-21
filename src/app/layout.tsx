@@ -11,7 +11,7 @@ import { cn } from "@/lib";
 export const metadata: Metadata = {
   title: "Data Harbor",
   description:
-    "Build your custom event schema and get started with our ingestion app",
+    "Build your custom form schema and get started with our ingestion app",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -27,6 +27,7 @@ export default function RootLayout({
         GeistMono.variable,
         "font-sans [&_*]:!font-sans",
       )}
+      suppressHydrationWarning
     >
       <head>
         <ColorSchemeScript />
